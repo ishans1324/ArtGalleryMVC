@@ -1,0 +1,38 @@
+@model IEnumerable<ArtGallery.Models.Painting>;
+
+<h4> <a asp-action="create">Add Painting</a>             <a asp-action="GetArtists">Display Artists</a></h4>
+
+
+<div class="form-group">
+    <form asp-action="SearchPaintings">
+        <input type="text" name="keyword" id="keyword">
+        <input type="submit" value="Search" class="btn btn-primary"/>
+
+    </form>
+</div>
+<table class="table table-bordered" >
+    <tr>
+        <th>Painting Id</th>
+        <th>ArtistId</th>
+        <th>Year</th>
+        <th>Title</th>
+        <th>Price</th>
+        <th>StyleOfArt</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Pid</td>
+            <td>@item.ArtistId</td>
+            <td>@item.Year</td>
+            <td>@item.Title</td>
+            <td>@item.Price</td>
+            <td>@item.StyleOfArt</td>
+
+            <td><a asp-action="Edit" asp-route-id="@item.Pid">Edit</a></td>
+            <td><a asp-action="Details" asp-route-id="@item.Pid">Know More</a></td>
+            <td><a asp-action="Delete" asp-route-id="@item.Pid">Delete</a></td>
+
+        </tr>
+    }
+</table> 

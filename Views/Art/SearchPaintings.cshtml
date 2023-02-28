@@ -1,0 +1,24 @@
+@model IEnumerable<ArtGallery.Models.Painting>;
+
+
+<table class="table">
+    <tr>
+        <th>Pid</th>
+        <th>ArtistId</th>
+        <th>Year</th>
+        <th>Title</th>
+        <th>Price</th>
+        <th>StyleOfArt</th>
+    </tr>
+     @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Pid</td>
+            <td>@item.ArtistId</td>
+            <td>@item.Year</td>
+            <td>@item.Title</td>
+            <td>@item.Price</td>
+            <td>@item.StyleOfArt</td>
+        </tr>
+    }
+</table> 
